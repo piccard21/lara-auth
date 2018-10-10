@@ -11,8 +11,15 @@ use Illuminate\Http\Request;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/users', function () {
+    // if (rand(1, 10) < 3) {
+    //     abort(500, 'We could not retrieve the users');
+    // }
+    return factory('App\User', 10)->make();
 });

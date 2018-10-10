@@ -31,6 +31,7 @@ Vue.use(VueRouter)
 import App from './components/App'
 import Hello from './components/Hello'
 import Home from './components/Home'
+import UsersIndex from './components/UsersIndex';
 
 const router = new VueRouter({
     mode: 'history',
@@ -44,6 +45,11 @@ const router = new VueRouter({
             path: '/hello',
             name: 'hello',
             component: Hello,
+        },
+        {
+            path: '/users',
+            name: 'users.index',
+            component: UsersIndex,
         },
     ],
 });

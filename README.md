@@ -12,3 +12,9 @@
 [Building a Vue SPA with Laravel](https://laravel-news.com/using-vue-router-laravel)
 
 
+## TODO
+
+* API
+* db + books
+*	testteil für api abfragen
+* Vuetify

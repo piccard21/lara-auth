@@ -15363,7 +15363,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.loading = true;
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/users').then(function (response) {
                 _this.loading = false;
-                _this.users = response.data;
+                _this.users = response.data.data;
             }).catch(function (error) {
                 _this.loading = false;
                 _this.error = error.response.data.message || error.message;

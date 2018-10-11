@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\VerifyMail;
 use App\User;
 use App\VerifyUser;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -86,11 +87,14 @@ class RegisterController extends Controller
     public function verifyUser($token)
     {
         $verifyUser = VerifyUser::where('token', $token)->first();
+
         if (isset($verifyUser)) {
             $user = $verifyUser->user;
             if (!$user->verified) {
                 $verifyUser->user->verified = 1;
+                $verifyUser->user->email_verified_at = Carbon::now();
                 $verifyUser->user->save();
+                $verifyUser->delete();
                 $status = "Your e-mail is verified. You can now login.";
             } else {
                 $status = "Your e-mail is already verified. You can now login.";

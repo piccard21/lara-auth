@@ -13,10 +13,6 @@
 
 
 ## TODO
-* Verify Token
-	* Token wieder löschen
-	* created mit in user
-
 * API
 * db + books
 *	testteil für api abfragen

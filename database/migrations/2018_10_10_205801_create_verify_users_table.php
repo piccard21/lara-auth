@@ -14,10 +14,17 @@ class CreateVerifyUsersTable extends Migration
     public function up()
     {
         Schema::create('verify_users', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('token');
             $table->timestamps();
         });
+
+        Schema::table('verify_users', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+        });
+
+        //
     }
 
     /**

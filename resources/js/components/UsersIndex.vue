@@ -20,11 +20,6 @@
                 <strong>Email:</strong> {{ email }}
             </li>
         </ul>
-
-        <p v-else-if="user"> 
-                <strong>Name:</strong> {{ user.name }},
-                <strong>Email:</strong> {{ user.email }} 
-        </p>
     </div>
 </template>
 <script>
@@ -35,7 +30,7 @@ export default {
     data() {
         return {
             loading: false,
-            user: null,
+            users: null,
             error: null,
         };
     },
@@ -47,10 +42,10 @@ export default {
             this.error = this.users = null;
             this.loading = true;
             axios
-                .get('/api/auth/user')
+                .get('/api/auth/users')
                 .then(response => {
                     this.loading = false;
-                    this.user = response.data;
+                    this.users = response.data.data;
                 }).catch(error => {
                     this.loading = false;
                     this.error = error.response.data.message || error.message;

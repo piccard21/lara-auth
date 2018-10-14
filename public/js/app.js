@@ -24978,8 +24978,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Hello___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Hello__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Home__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Home___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Home__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_UsersIndex__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_UsersIndex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_UsersIndex__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_User__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_User___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_User__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_UsersIndex__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_UsersIndex___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_UsersIndex__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -25014,6 +25016,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 
 
+
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
     routes: [{
@@ -25027,7 +25030,11 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     }, {
         path: '/users',
         name: 'users.index',
-        component: __WEBPACK_IMPORTED_MODULE_5__components_UsersIndex___default.a
+        component: __WEBPACK_IMPORTED_MODULE_6__components_UsersIndex___default.a
+    }, {
+        path: '/user',
+        name: 'user',
+        component: __WEBPACK_IMPORTED_MODULE_5__components_User___default.a
     }]
 });
 
@@ -50035,6 +50042,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -50064,7 +50072,9 @@ var render = function() {
         _vm._v(" |\n        "),
         _c("router-link", { attrs: { to: { name: "users.index" } } }, [
           _vm._v("Users")
-        ])
+        ]),
+        _vm._v(" |\n        "),
+        _c("router-link", { attrs: { to: { name: "user" } } }, [_vm._v("User")])
       ],
       1
     ),
@@ -50295,11 +50305,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -50307,7 +50312,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             loading: false,
-            user: null,
+            users: null,
             error: null
         };
     },
@@ -50321,9 +50326,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.error = this.users = null;
             this.loading = true;
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/auth/user').then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/auth/users').then(function (response) {
                 _this.loading = false;
-                _this.user = response.data;
+                _this.users = response.data.data;
             }).catch(function (error) {
                 _this.loading = false;
                 _this.error = error.response.data.message || error.message;
@@ -50382,14 +50387,7 @@ var render = function() {
             ])
           })
         )
-      : _vm.user
-        ? _c("p", [
-            _c("strong", [_vm._v("Name:")]),
-            _vm._v(" " + _vm._s(_vm.user.name) + ",\n            "),
-            _c("strong", [_vm._v("Email:")]),
-            _vm._v(" " + _vm._s(_vm.user.email) + " \n    ")
-          ])
-        : _vm._e()
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -50407,6 +50405,175 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(57)
+/* template */
+var __vue_template__ = __webpack_require__(58)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/User.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d884f594", Component.options)
+  } else {
+    hotAPI.reload("data-v-d884f594", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            loading: false,
+            user: null,
+            error: null
+        };
+    },
+    created: function created() {
+        this.fetchData();
+    },
+
+    methods: {
+        fetchData: function fetchData() {
+            var _this = this;
+
+            this.error = this.users = null;
+            this.loading = true;
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/auth/user').then(function (response) {
+                _this.loading = false;
+                _this.user = response.data;
+            }).catch(function (error) {
+                _this.loading = false;
+                _this.error = error.response.data.message || error.message;
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "users" }, [
+    _vm.loading
+      ? _c("div", { staticClass: "loading" }, [
+          _vm._v("\n        Loading...\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.error
+      ? _c("div", { staticClass: "error" }, [
+          _c("p", [_vm._v(_vm._s(_vm.error))]),
+          _vm._v(" "),
+          _c("p", [
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.fetchData($event)
+                  }
+                }
+              },
+              [_vm._v("\n                Try Again\n            ")]
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.user
+      ? _c("p", [
+          _c("strong", [_vm._v("Name:")]),
+          _vm._v(" " + _vm._s(_vm.user.name) + ",\n            "),
+          _c("strong", [_vm._v("Email:")]),
+          _vm._v(" " + _vm._s(_vm.user.email) + " \n    ")
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d884f594", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

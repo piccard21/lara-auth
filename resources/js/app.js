@@ -33,7 +33,8 @@ Vue.use(VueRouter)
 import App from './components/App'
 import Hello from './components/Hello'
 import Home from './components/Home'
-import UsersIndex from './components/UsersIndex';
+import User from './components/User'
+import UsersIndex from './components/UsersIndex'
  
 
 const router = new VueRouter({
@@ -53,6 +54,11 @@ const router = new VueRouter({
             path: '/users',
             name: 'users.index',
             component: UsersIndex,
+        },
+        {
+            path: '/user',
+            name: 'user',
+            component: User,
         },
     ],
 });

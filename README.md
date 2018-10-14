@@ -9,7 +9,11 @@
 
 ## SPA after Login
 
-[Building a Vue SPA with Laravel](https://laravel-news.com/using-vue-router-laravel)
+[Building a Vue SPA with Laravel, 1-3 (4)](https://laravel-news.com/using-vue-router-laravel)
+
+## SPA after Login
+
+[Create API Rest with Laravel 5.6 Passport](https://medium.com/modulr/create-api-authentication-with-passport-of-laravel-5-6-1dc2d400a7f)
 
 
 ## TODO

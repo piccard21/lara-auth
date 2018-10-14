@@ -5,9 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
+require('./bootstrap');
 
-// window.Vue = require('vue');
+window.Vue = require('vue');
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,6 +34,7 @@ import App from './components/App'
 import Hello from './components/Hello'
 import Home from './components/Home'
 import UsersIndex from './components/UsersIndex';
+ 
 
 const router = new VueRouter({
     mode: 'history',

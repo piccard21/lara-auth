@@ -22,6 +22,7 @@
 //     return factory('App\User', 10)->make();
 // });
 
+// namespace: just for finding Controller
 Route::namespace('Api')->group(function () {
     Route::get('/users', 'UsersController@index');
 });
